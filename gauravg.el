@@ -18,6 +18,7 @@
 
 
 ;; set theme
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-arjen)
