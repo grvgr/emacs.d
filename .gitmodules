@@ -1,0 +1,3 @@
+[submodule "vendor/feature-mode"]
+	path = vendor/feature-mode
+	url = http://github.com/michaelklishin/cucumber.el.git
