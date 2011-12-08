@@ -1,7 +1,7 @@
-;; whitespace
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
-(require 'whitespace)
-(add-hook 'ruby-mode-hook 'whitespace-mode)
+
+;; whitespace
+;; (require 'whitespace)
 
 
 ;; features
@@ -21,59 +21,20 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-arjen)
-
-;; Ack in Project
-;; (require 'ack-emacs)
-(defvar ack-command "ack-grep --nocolor --nogroup "
-  "The command to be run by the ack function.")
+(color-theme-charcoal-black)
 
 
-(defun ack-in-project (pattern)
-  "Run ack, with user-specified ARGS, and collect output in a buffer.
-While ack runs asynchronously, you can use the \\[next-error] command to
-find the text that ack hits refer to. The command actually run is
-defined by the ack-command variable."
-  (interactive (list (read-string "Ack for (in app root): " (thing-at-point 'symbol))))
-
-  (let (compile-command
-        (compilation-error-regexp-alist grep-regexp-alist)
-        (compilation-directory default-directory)
-        (ack-full-buffer-name (concat "*ack-" pattern "*"))
-        (ack-use-search-in-buffer-name (concat "*ack-buff-" pattern "*")))
-
-    ;; lambda defined here since compilation-start expects to call
-    ;; a function to get the buffer name
-    (compilation-start (concat ack-command " -i --noheading --nocolor " pattern " " (rinari-root)) 'ack-mode
-                       (when ack-use-search-in-buffer-name
-                         (function (lambda (ignore)
-                                     ack-full-buffer-name)))
-                       (regexp-quote pattern))))
-
-(global-set-key "\C-cfa" 'ack-in-project)
-
-;;tab completion
-;; (defun indent-or-expand (arg)
-;;   "Either indent according to mode, or expand the word preceding
-;; point."
-;;   (interactive "*P")
-;;   (if (and
-;;        (or (bobp) (= ?w (char-syntax (char-before))))
-;;        (or (eobp) (not (= ?w (char-syntax (char-after))))))
-;;       (dabbrev-expand arg)
-;;     (indent-according-to-mode)))
-
-;; (defun my-tab-fix ()
-;;   (local-set-key [tab] 'indent-or-expand))
-
-;; (add-hook 'c-mode-hook          'my-tab-fix)
-;; (add-hook 'sh-mode-hook         'my-tab-fix)
-;; (add-hook 'emacs-lisp-mode-hook 'my-tab-fix)
-;; (add-hook 'ruby-mode-hook       'my-tab-fix)
-
+;; auto complete
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/auto-complete"))
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories (concat dotfiles-dir "/vendor/auto-complete/ac-dict"))
+(ac-config-default)
+(add-hook 'ruby-mode-hook 'auto-complete-mode)
+(global-set-key "\C-c\C-a" 'auto-complete-mode)
 
 ;; rails mode
 (require 'snippet)
+
 (require 'find-recursive)
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/emacs-rails"))
 (require 'rails)
@@ -98,7 +59,6 @@ defined by the ack-command variable."
 (auto-fill-mode -1)
 (set-default 'fill-column 200)
 
-
 ;; fullscreen
 (defun toggle-fullscreen (&optional f)
   (interactive)
@@ -118,3 +78,9 @@ defined by the ack-command variable."
 
 ;; remove trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; window movement
+(global-set-key [S-left] 'windmove-left)
+(global-set-key [S-right] 'windmove-right)
+(global-set-key [S-up] 'windmove-up)
+(global-set-key [S-down] 'windmove-down)
