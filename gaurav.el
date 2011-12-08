@@ -3,6 +3,8 @@
 ;; whitespace
 ;; (require 'whitespace)
 
+;; browse kill ring
+(require 'browse-kill-ring)
 
 ;; features
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/feature-mode"))
