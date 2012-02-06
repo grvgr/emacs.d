@@ -23,7 +23,7 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-charcoal-black)
+(color-theme-charcoal-black-upgrade)
 
 
 ;; auto complete
@@ -33,6 +33,9 @@
 (ac-config-default)
 (add-hook 'ruby-mode-hook 'auto-complete-mode)
 (global-set-key "\C-c\C-a" 'auto-complete-mode)
+
+;; pareedit mode for ruby
+;; (add-hook 'ruby-mode-hook 'paredit-mode)
 
 ;; rails mode
 (require 'snippet)
@@ -53,6 +56,7 @@
 ;; maxframe
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
+(global-set-key "\C-c\C-f" 'maximize-frame)
 
 ;; smooth scrolling
 (require 'smooth-scrolling)
@@ -86,3 +90,16 @@
 (global-set-key [S-right] 'windmove-right)
 (global-set-key [S-up] 'windmove-up)
 (global-set-key [S-down] 'windmove-down)
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+(global-set-key "\C-c n" 'cleanup-buffer)
+
+;; make deleted files go to the trash can
+(setq delete-by-moving-to-trash t)
+
+
+;; coffee-mode
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/coffee-mode"))
+(require 'coffee-mode)
