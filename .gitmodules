@@ -7,3 +7,6 @@
 [submodule "vendor/coffee-mode"]
 	path = vendor/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "vendor/emacs-rails"]
+	path = vendor/emacs-rails
+	url = git://github.com/remvee/emacs-rails.git
