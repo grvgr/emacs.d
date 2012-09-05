@@ -1,0 +1,50 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("004_slidechute.master"
+ (filename . "~/CodeBase/Chute/slidechute.master/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "92 Aug  9 19:12 ")
+ (position . 258))
+("000_Chute"
+ (filename . "~/CodeBase/Chute/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "80 May 15 23:34 ")
+ (position . 132))
+("001_slidechute"
+ (filename . "~/CodeBase/Chute/slidechute/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "50 Aug 11 10:55 ")
+ (position . 195))
+("002_chute-ruby"
+ (filename . "~/CodeBase/Chute/chute-ruby/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "10 May  1 23:23 ")
+ (position . 143))
+("003_chute-rails"
+ (filename . "~/CodeBase/Chute/chute-rails/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "08 May 23 17:56 ")
+ (position . 144))
+("_conf_.emacs.d"
+ (filename . "~/.emacs.d/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "04 May 18 03:12 ")
+ (position . 191))
+("_conf_.oh-my-zsh"
+ (filename . "~/.oh-my-zsh/")
+ (front-context-string . ".git\n  -rw-r--r-")
+ (rear-context-string . "10 Dec  8 12:46 ")
+ (position . 240))
+("_conf_hosts"
+ (filename . "/sudo:root@firefly:/etc/hosts")
+ (front-context-string . "##\n# Host Databa")
+ (rear-context-string)
+ (position . 1))
+("_conf_apache2"
+ (filename . "/sudo:root@firefly:/etc/apache2/")
+ (front-context-string . "..\n  -r--r--r-- ")
+ (rear-context-string . "30 Dec 16 21:30 ")
+ (position . 150))
+)

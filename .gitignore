@@ -22,3 +22,5 @@ tramp
 \#*
 abbrev_defs
 ac-comphist.dat
+backupfiles/*
+tutorial/*

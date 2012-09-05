@@ -21,10 +21,11 @@
 
 ;; set theme
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/tomorrow-theme"))
 (require 'color-theme)
+(require 'color-theme-tomorrow)
 (color-theme-initialize)
-(color-theme-charcoal-black-upgrade)
-
+(color-theme-tomorrow-night)
 
 ;; auto complete
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/auto-complete"))
@@ -44,6 +45,35 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/emacs-rails"))
 (require 'rails)
 
+;; rvm
+;; use rvm's default ruby for the current Emacs session
+(require 'rvm)
+(rvm-use-default)
+
+;;; rinari
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/rinari"))
+(require 'rinari)
+(setq rinari-tags-file-name "TAGS")
+(setq rinari-major-modes
+      (list 'mumamo-after-change-major-mode-hook 'dired-mode-hook 'ruby-mode-hook
+            'css-mode-hook 'yaml-mode-hook 'javascript-mode-hook))
+
+;;; rhtml-mode
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/rhtml"))
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
+
+;;; ctags
+(setq path-to-ctags "/opt/local/bin/ctags")
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "%s --exclude=assets --exclude=public -f %s/TAGS -e -R %s" path-to-ctags dir-name (directory-file-name dir-name)))
+  (shell-command "/usr/bin/terminal-notifier -message 'Tags updated.' -title 'Emacs'")
+  (visit-tags-table dir-name nil)
+  )
 
 ;; effective emacs http://steve.yegge.googlepages.com/effective-emacs
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -54,9 +84,30 @@
 (global-set-key [f5] 'call-last-kbd-macro)
 
 ;; maxframe
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-(global-set-key "\C-c\C-f" 'maximize-frame)
+;; (require 'maxframe)
+;; (add-hook 'window-setup-hook 'maximize-frame t)
+;; (global-set-key "\C-c\C-f" 'maximize-frame)
+
+;; fullscreen
+;; (defun toggle-fullscreen (&optional f)
+;;   (interactive)
+;;   (let ((current-value (frame-parameter nil 'fullscreen)))
+;;     (set-frame-parameter nil 'fullscreen
+;;                          (if (equal 'fullboth current-value)
+;;                              (if (boundp 'old-fullscreen) old-fullscreen nil)
+;;                            (progn (setq old-fullscreen current-value)
+;;                                   'fullboth)))))
+
+;; (global-set-key [f11] 'toggle-fullscreen)
+;; Make new frames fullscreen by default. Note: this hook doesn't do
+;; anything to the initial frame if it's in your .emacs, since that file is
+;; read _after_ the initial frame is created.
+;; (add-hook 'after-make-frame-functions 'toggle-fullscreen)
+;; (global-set-key [f11] 'toggle-fullscreen)
+
+;;; OSX native fullscreen
+(global-set-key "\C-c\C-f" 'ns-toggle-fullscreen)
+(add-hook 'window-setup-hook 'ns-toggle-fullscreen t)
 
 ;; smooth scrolling
 (require 'smooth-scrolling)
@@ -65,22 +116,6 @@
 (auto-fill-mode -1)
 (set-default 'fill-column 200)
 
-;; fullscreen
-(defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (equal 'fullboth current-value)
-                             (if (boundp 'old-fullscreen) old-fullscreen nil)
-                           (progn (setq old-fullscreen current-value)
-                                  'fullboth)))))
-
-(global-set-key [f11] 'toggle-fullscreen)
-;; Make new frames fullscreen by default. Note: this hook doesn't do
-;; anything to the initial frame if it's in your .emacs, since that file is
-;; read _after_ the initial frame is created.
-(add-hook 'after-make-frame-functions 'toggle-fullscreen)
-(global-set-key [f11] 'toggle-fullscreen)
 
 ;; remove trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -103,3 +138,40 @@
 ;; coffee-mode
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/coffee-mode"))
 (require 'coffee-mode)
+
+(defun coffee-custom ()
+  "coffee-mode-hook"
+ (set (make-local-variable 'tab-width) 2))
+
+(add-hook 'coffee-mode-hook
+  '(lambda() (coffee-custom)))
+
+
+(defun js-json-reformat (beg end)
+  (interactive "r")
+  (shell-command-on-region beg end "python -m json.tool" nil t))
+
+;;(define-key js-mode-map (kbd "C-c j") 'js-json-reformat)
+;;(define-key js2-mode-map (kbd "C-c j") 'js-json-reformat)
+(global-set-key "\C-c j" 'js-json-reformat)
+
+
+(defun bf-pretty-print-xml-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this.  The function inserts linebreaks to separate tags that have
+nothing but whitespace between them.  It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+    (nxml-mode)
+    (goto-char begin)
+    (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+      (backward-char) (insert "\n"))
+    (indent-region begin end))
+      (message "Ah, much better!"))
+
+;; Local Variables:
+;; no-byte-compile: t
+;; coding: utf-8
+;; End:
