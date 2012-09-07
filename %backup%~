@@ -1,0 +1,13 @@
+[mysqld]
+user=mysql_owner
+datadir=/path/to/datadir/mysql
+socket=/path/to/datadir/mysql/mysql.sock
+skip-innodb
+
+[mysql.server]
+user=mysql_owner
+basedir=/path/to/datadir
+
+[client]
+user=mysql_owner
+socket=/path/to/datadir/mysql/mysql.sock

@@ -1,0 +1,5 @@
+#name : def ... end
+# --
+def ${method}
+$0
+end

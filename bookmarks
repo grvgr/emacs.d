@@ -2,21 +2,16 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("004_slidechute.master"
+(("_conf_etc"
+ (filename . "/sudo:root@firefly:/etc/")
+ (front-context-string . "..\n  -rw------- ")
+ (rear-context-string . "04 Aug  9 18:01 ")
+ (position . 145))
+("004_slidechute.master"
  (filename . "~/CodeBase/Chute/slidechute.master/")
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "92 Aug  9 19:12 ")
  (position . 258))
-("000_Chute"
- (filename . "~/CodeBase/Chute/")
- (front-context-string . ".\n  drwxr-xr-x  ")
- (rear-context-string . "80 May 15 23:34 ")
- (position . 132))
-("001_slidechute"
- (filename . "~/CodeBase/Chute/slidechute/")
- (front-context-string . ".\n  drwxr-xr-x  ")
- (rear-context-string . "50 Aug 11 10:55 ")
- (position . 195))
 ("002_chute-ruby"
  (filename . "~/CodeBase/Chute/chute-ruby/")
  (front-context-string . ".\n  drwxr-xr-x  ")
@@ -47,4 +42,14 @@
  (front-context-string . "..\n  -r--r--r-- ")
  (rear-context-string . "30 Dec 16 21:30 ")
  (position . 150))
+("001_Chute"
+ (filename . "~/CodeBase/Chute/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "80 May 15 23:34 ")
+ (position . 132))
+("000_slidechute"
+ (filename . "~/CodeBase/Chute/slidechute/")
+ (front-context-string . ".\n  drwxr-xr-x  ")
+ (rear-context-string . "50 Aug 11 10:55 ")
+ (position . 195))
 )

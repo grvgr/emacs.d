@@ -1,4 +1,5 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
+(add-to-list 'custom-theme-load-path (concat dotfiles-dir "/vendor/emacs-theme"))
 
 ;; whitespace
 ;; (require 'whitespace)
@@ -20,12 +21,15 @@
 
 
 ;; set theme
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/tomorrow-theme"))
-(require 'color-theme)
-(require 'color-theme-tomorrow)
-(color-theme-initialize)
-(color-theme-tomorrow-night)
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/tomorrow-theme"))
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (require 'color-theme-tomorrow)
+;;(color-theme-tomorrow-night)
+
+;; light table like theme
+(load-theme 'bubbleberry 1)
 
 ;; auto complete
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/auto-complete"))
@@ -39,7 +43,7 @@
 ;; (add-hook 'ruby-mode-hook 'paredit-mode)
 
 ;; rails mode
-(require 'snippet)
+;;(require 'snippet)
 
 (require 'find-recursive)
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/emacs-rails"))
@@ -49,6 +53,43 @@
 ;; use rvm's default ruby for the current Emacs session
 (require 'rvm)
 (rvm-use-default)
+
+
+;;; override font styles
+(defface erb-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag body"
+  :group 'rhtml-faces)
+
+(defface erb-delim-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag delimeters"
+  :group 'rhtml-faces)
+
+(defface erb-exec-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag body"
+  :group 'rhtml-faces)
+
+(defface erb-exec-delim-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag delimeters"
+  :group 'rhtml-faces)
+
+(defface erb-out-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag body"
+  :group 'rhtml-faces)
+
+(defface erb-out-delim-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag delimeters"
+  :group 'rhtml-faces)
+
+(defface yas/field-highlight-face
+  `((t (:background "black")))
+  "Default inherited face for ERB tag delimeters"
+  :group 'yasnippet)
 
 ;;; rinari
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/rinari"))
@@ -63,6 +104,11 @@
 (require 'rhtml-mode)
 (add-hook 'rhtml-mode-hook
           (lambda () (rinari-launch)))
+
+;;; yasnippets
+(setq yas/root-directory (concat dotfiles-dir "/vendor/snippets"))
+(yas/load-directory yas/root-directory)
+
 
 ;;; ctags
 (setq path-to-ctags "/opt/local/bin/ctags")
@@ -106,7 +152,7 @@
 ;; (global-set-key [f11] 'toggle-fullscreen)
 
 ;;; OSX native fullscreen
-(global-set-key "\C-c\C-f" 'ns-toggle-fullscreen)
+(global-set-key "\C-c\C-c\C-f" 'ns-toggle-fullscreen)
 (add-hook 'window-setup-hook 'ns-toggle-fullscreen t)
 
 ;; smooth scrolling
@@ -146,6 +192,24 @@
 (add-hook 'coffee-mode-hook
   '(lambda() (coffee-custom)))
 
+;;; rainbow mode
+(require 'rainbow-mode)
+
+(display-battery-mode)
+
+;;; powerline
+;; (require 'powerline)
+;; ;; colors...
+;; (setq powerline-color1 "#123550")      ;; dark grey;
+;; (setq powerline-color2 "#112230")      ;; slightly lighter grey
+;; ;; shape...
+;; (setq powerline-arrow-shape 'arrow14) ;; mirrored arrows,
+
+;;; autopair
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/autopair"))
+(require 'autopair)
+(autopair-global-mode 1)
+(setq autopair-autowrap t)
 
 (defun js-json-reformat (beg end)
   (interactive "r")
