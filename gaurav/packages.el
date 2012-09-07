@@ -1,12 +1,5 @@
 (setq grv-packages
       '(
-        starter-kit-bindings
-        starter-kit-lisp
-        starter-kit-js
-        starter-kit-ruby
-        paredit
-        magit
-        smex
         haml-mode
         flymake-haml
         js2-mode
