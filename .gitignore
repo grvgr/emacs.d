@@ -1,0 +1,13 @@
+# OSX .files
+.DS_Store
+
+# compiles lisp
+*.elc
+
+# starter kit specific files
+starter-kit-2.*
+*.tar
+
+# emacs temp / backup / save files
+*[~]
+[#]*[#]
