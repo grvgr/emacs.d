@@ -32,3 +32,5 @@
 (when (file-exists-p esk-system-config) (load esk-system-config))
 (when (file-exists-p esk-user-config) (load esk-user-config))
 (when (file-exists-p esk-user-dir) (mapc 'load (directory-files esk-user-dir nil "^[^#].*el$")))
+
+(setq custom-file (concat user-emacs-directory "custom.el"))
