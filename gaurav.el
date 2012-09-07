@@ -44,7 +44,9 @@
 (global-set-key [S-up] 'windmove-up)
 (global-set-key [S-down] 'windmove-down)
 
+;; key bindings
 (global-set-key "\C-c n" 'cleanup-buffer)
+(global-set-key "\C-x g" 'magit-status)
 
 ;; make deleted files go to the trash can
 (setq delete-by-moving-to-trash t)

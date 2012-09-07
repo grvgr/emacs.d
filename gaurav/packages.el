@@ -8,6 +8,7 @@
         rvm
         sass-mode
         flymake-sass
+        yaml-mode
 ;;        shellfm
 ;;        wtf
         yasnippet
