@@ -58,9 +58,10 @@
 (global-set-key [S-up] 'windmove-up)
 (global-set-key [S-down] 'windmove-down)
 
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-
+(if window-system
+    (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  )
 (global-set-key "\C-c n" 'cleanup-buffer)
 
 ;; make deleted files go to the trash can

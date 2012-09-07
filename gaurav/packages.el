@@ -8,8 +8,8 @@
         rvm
         sass-mode
         flymake-sass
-        shellfm
-        wtf
+;;        shellfm
+;;        wtf
         yasnippet
         yasnippet-bundle
         auto-complete
@@ -24,8 +24,8 @@
         ctags-update
         ))
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
 (dolist (pkg grv-packages)
   (when (and (not (package-installed-p pkg))
