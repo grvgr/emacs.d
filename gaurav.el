@@ -9,22 +9,8 @@
 (global-set-key "\C-c\C-c\C-f" 'ns-toggle-fullscreen)
 (add-hook 'window-setup-hook 'ns-toggle-fullscreen t)
 
-;;; elpa packages
-;;rinari
-(setq rinari-tags-file-name "TAGS")
-(setq rinari-major-modes
-      (list 'mumamo-after-change-major-mode-hook 'dired-mode-hook 'ruby-mode-hook
-            'css-mode-hook 'yaml-mode-hook 'javascript-mode-hook))
-
-;; coffee-mode
-(defun coffee-custom ()
-  "coffee-mode-hook"
- (set (make-local-variable 'tab-width) 2))
-
-(add-hook 'coffee-mode-hook
-  '(lambda() (coffee-custom)))
-
 ;;; customizations
+
 ;; remove trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -58,14 +44,30 @@
 (global-set-key [S-up] 'windmove-up)
 (global-set-key [S-down] 'windmove-down)
 
-(if window-system
-    (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  )
 (global-set-key "\C-c n" 'cleanup-buffer)
 
 ;; make deleted files go to the trash can
 (setq delete-by-moving-to-trash t)
+
+;;; recent file
+(require 'recentf)
+(recentf-mode 1)
+(defun recentf-ido-find-file ()
+  "Find a recent file using Ido."
+  (interactive)
+  (let* ((file-assoc-list
+          (mapcar (lambda (x) (cons (file-name-nondirectory x) x)) recentf-list))
+         (filename-list
+          (remove-duplicates (mapcar #'car file-assoc-list)
+                             :test #'string=))
+         (filename (ido-completing-read "Choose recent file: "
+                                        filename-list
+                                        nil
+                                        t)))
+    (when filename
+      (find-file (cdr (assoc filename file-assoc-list))))))
+
+(global-set-key "\C-xf" 'recentf-ido-find-file)
 
 ;; Local Variables:
 ;; no-byte-compile: t
