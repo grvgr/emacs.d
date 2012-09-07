@@ -1,0 +1,6 @@
+[submodule "gaurav/emacs-rails"]
+	path = gaurav/emacs-rails
+	url = git://github.com/remvee/emacs-rails.git
+[submodule "gaurav/rhtml-mode"]
+	path = gaurav/rhtml-mode
+	url = git://github.com/eschulte/rhtml.git

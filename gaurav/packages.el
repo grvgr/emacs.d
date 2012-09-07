@@ -20,6 +20,8 @@
         rainbow-mode
         browse-kill-ring
         color-theme
+        ctags
+        ctags-update
         ))
 
 (when (not package-archive-contents)
