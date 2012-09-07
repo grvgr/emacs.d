@@ -1,7 +1,6 @@
 (setq grv-packages
       '(
         haml-mode
-        js2-mode
         ruby-mode
         ruby-electric
         rvm
