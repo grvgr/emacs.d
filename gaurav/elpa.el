@@ -13,10 +13,10 @@
 ;; coffee-mode
 (defun coffee-custom ()
   "coffee-mode-hook"
- (set (make-local-variable 'tab-width) 2))
+  (set (make-local-variable 'tab-width) 2))
 
 (add-hook 'coffee-mode-hook
-  '(lambda() (coffee-custom)))
+          '(lambda() (coffee-custom)))
 
 ;; auto-complete
 (require 'auto-complete-config)
@@ -33,3 +33,11 @@
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+;; flymake
+(require 'flymake)
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (flymake-mode)
+             (flymake-ruby-load)
+             ))

@@ -1,16 +1,22 @@
 (setq grv-packages
       '(
         haml-mode
-        flymake-haml
         js2-mode
         ruby-mode
         ruby-electric
         rvm
         sass-mode
+        flymake
+        flymake-ruby
+        flymake-coffee
+        flymake-css
+        flymake-csslint
+        flymake-haml
         flymake-sass
+        highline
         yaml-mode
-;;        shellfm
-;;        wtf
+        shellfm
+        wtf
         yasnippet
         yasnippet-bundle
         auto-complete
