@@ -4,15 +4,14 @@
 # compiles lisp
 *.elc
 
-# starter kit specific files
-starter-kit-2.*
-*.tar
-
 # emacs temp / backup / save files
 *[~]
 [#]*[#]
+[.][#]*
 places
 bookmarks
 
-# plugin files
+# packages files
+elpa/*
 .smex-items
+*.tar
