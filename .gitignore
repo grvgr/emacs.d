@@ -11,3 +11,8 @@ starter-kit-2.*
 # emacs temp / backup / save files
 *[~]
 [#]*[#]
+places
+bookmarks
+
+# plugin files
+.smex-items
