@@ -14,7 +14,6 @@
         flymake-sass
         highline
         yaml-mode
-        shellfm
         wtf
         yasnippet
         yasnippet-bundle

@@ -47,13 +47,13 @@
   :group 'multimedia
   :tag "Shell.FM")
 
-(defcustom shellfm-program "/usr/bin/shell-fm"
+(defcustom shellfm-program "/opt/local/bin/shell-fm"
   "Path to shell-fm executable."
   :group 'shellfm
   :type 'string
   :tag "Shell-fm program path")
 
-(defcustom shellfm-confirm-skip t
+(defcustom shellfm-confirm-skip nil
   "Ask for confirmation when skipping tracks."
   :type 'boolean)
 
@@ -63,7 +63,7 @@
   :type 'string
   :tag "Shell-fm command line options")
 
-(defcustom lastfm-default-url "lastfm://globaltags/Emacs"
+(defcustom lastfm-default-url "lastfm://user/gauravg/recommended"
   "Default lastfm:// URL for shell-fm."
   :group 'shellfm
   :type '(choice string (const :tag "Empty URL" "lastfm://"))
@@ -402,7 +402,7 @@ documentation string."
                 tag-list))))
        (shellfm-command (concat "T" ,tagging-type
                                 (mapconcat (lambda (s) s) real-tags ","))))))
-     
+
 (define-shellfm-tag-command shellfm-tag-track "t"
   "Tag current track")
 
@@ -519,13 +519,13 @@ DOC is an optional documentation string."
       (shellfm-station-menu-map (make-sparse-keymap))
       (shellfm-tag-menu-map (make-sparse-keymap))
       (shellfm-recommend-menu-map (make-sparse-keymap)))
-  
+
   ;; Tag
   (define-shellfm-menu-keys shellfm-tag-menu-map
     '(("Track" . shellfm-tag-track)
       ("Artist" . shellfm-tag-artist)
       ("Album" . shellfm-tag-album)))
-  
+
   ;; Recommend
   (define-shellfm-menu-keys shellfm-recommend-menu-map
     '(("Track" . shellfm-recommend-track)
@@ -541,7 +541,7 @@ DOC is an optional documentation string."
       ("URL" . shellfm-url)
       ("Global tag" . shellfm-station-tag)
       ("Recommended tracks" . shellfm-station-recommended)))
-  
+
   (define-shellfm-menu-keys shellfm-menu-map
     '(("Launch/kill Shell.FM" . shellfm)
       ("--double-line" . sep)))
@@ -554,7 +554,7 @@ DOC is an optional documentation string."
 
   (define-key-after shellfm-menu-map [shellfm-tag]
     `("Tag" . ,shellfm-tag-menu-map))
-  
+
   ;; General
   (define-shellfm-menu-keys shellfm-menu-map
     '(("--" . sep1)
