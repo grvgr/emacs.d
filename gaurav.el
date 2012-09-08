@@ -71,6 +71,12 @@
 
 (global-set-key "\C-xf" 'recentf-ido-find-file)
 
+;; show line numbers
+(global-linum-mode 1)
+
+;; fringe-mode
+(set-fringe-mode '(1 . 1))
+
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; coding: utf-8

@@ -1,7 +1,7 @@
 # OSX .files
 .DS_Store
 
-# compiles lisp
+# compiled lisp
 *.elc
 
 # emacs temp / backup / save files

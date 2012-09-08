@@ -6,7 +6,7 @@
 
 (custom-theme-set-variables
  'bubbleberry
- '(linum-format " %7i ")
+ '(linum-format " %3i ")
  '(fringe-mode 5 nil (fringe))
  '(powerline-color1 "#3d3d68")
  '(powerline-color2 "#292945")
