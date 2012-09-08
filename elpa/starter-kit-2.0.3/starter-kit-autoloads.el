@@ -6,7 +6,7 @@
 ;;;### (autoloads nil "starter-kit" "starter-kit.el" (20554 19782))
 ;;; Generated autoloads from starter-kit.el
 
-(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode)) (when (fboundp mode) (funcall mode -1)))
+(dolist (mode '(tool-bar-mode scroll-bar-mode)) (when (fboundp mode) (funcall mode -1)))
 
 (mapc 'require '(uniquify starter-kit-defuns starter-kit-misc))
 
