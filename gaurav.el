@@ -77,6 +77,9 @@
 ;; fringe-mode
 (set-fringe-mode '(1 . 1))
 
+;; shell-fm
+;; (shellfm 1)
+
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; coding: utf-8

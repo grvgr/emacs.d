@@ -16,7 +16,8 @@
  'bubbleberry
 
  ;; basic theming.
- '(default                          ((t (:foreground "#ABAEB3" :background "#222222" ))))
+ '(default                          ((t (:foreground "#ABAEB3" :background "#1D1F21" ))))
+ ;; '(default                          ((t (:foreground "#ABAEB3" :background "#222222" ))))
  '(region                           ((t (:background "#101010" ))))
  '(cursor                           ((t (:background "#ffffff" ))))
  '(fringe                           ((t (:background "#2f2f2f" :foreground "#ffffff" ))))
@@ -95,24 +96,25 @@
     (((class color) (min-colors 88) (background dark))  (:background "#880000"))
     (((class color) (min-colors 16))                    (:background "#FF0000"))
     (((class color) (min-colors 8))                     (:background "#FF0000"))
-    (((class color grayscale))                          (:foreground "#888888")) (t (:inverse-video t))))
+    (((class color grayscale))                          (:foreground "#888888")) (t (:inverse-video t)))))
 
- '(lazy-highlight
-   ((((class color) (min-colors 88) (background light)) (:background "#77bbdd"))
-    (((class color) (min-colors 88) (background dark)) (:background "#77bbdd"))
-    (((class color) (min-colors 16)) (:background "#4499ee"))
-    (((class color) (min-colors 8)) (:background "#4499ee")) (t (:underline t))))
+'(lazy-highlight
+  ((((class color) (min-colors 88) (background light)) (:background "#77bbdd"))
+   (((class color) (min-colors 88) (background dark)) (:background "#77bbdd"))
+   (((class color) (min-colors 16)) (:background "#4499ee"))
+   (((class color) (min-colors 8)) (:background "#4499ee")) (t (:underline t))))
 
- '(match
-   ((((class color) (min-colors 88) (background light)) (:background "#3388cc"))
-    (((class color) (min-colors 88) (background dark)) (:background "#3388cc"))
-    (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
-    (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF"))
-    (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
+'(match
+  ((((class color) (min-colors 88) (background light)) (:background "#3388cc"))
+   (((class color) (min-colors 88) (background dark)) (:background "#3388cc"))
+   (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
+   (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF"))
+   (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
 
  ;; magit
- '(magit-item-highlight ((t (:background "#111111"))))
-)
+
+'(magit-item-highlight ((t (:background "#111111"))))
+
 
 ;;;###autoload
 (when load-file-name
