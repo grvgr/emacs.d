@@ -45,8 +45,8 @@
 (global-set-key [S-down] 'windmove-down)
 
 ;; key bindings
-(global-set-key "\C-c n" 'cleanup-buffer)
-(global-set-key "\C-x g" 'magit-status)
+(global-set-key "\C-cn" 'cleanup-buffer)
+(global-set-key "\C-xg" 'magit-status)
 
 ;; make deleted files go to the trash can
 (setq delete-by-moving-to-trash t)
@@ -77,8 +77,14 @@
 ;; fringe-mode
 (if (window-system) (set-fringe-mode '(1 . 1)))
 
-;; shell-fm
-;; (shellfm 1)
+(defun scrollbar-fix ()
+  "Fix the scrollbar right margin."
+  (interactive)
+  (toggle-scroll-bar 1)
+  (toggle-scroll-bar -1)
+  )
+
+(global-set-key "\C-c\C-c\C-s" 'scrollbar-fix)
 
 ;; Local Variables:
 ;; no-byte-compile: t
