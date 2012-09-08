@@ -57,7 +57,7 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box nil)
 
-(scroll-bar-mode -1)
+(if (window-system) (scroll-bar-mode -1))
 
 (defun chamfer-xpm
   (color1 color2)

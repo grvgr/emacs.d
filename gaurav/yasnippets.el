@@ -5,4 +5,4 @@
 
 (setq yas/root-directory (concat user-dotfiles-dir "snippets"))
 (yas/load-directory yas/root-directory)
-(yas/reload-all)
+;; (yas/reload-all)

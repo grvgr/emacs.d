@@ -7,7 +7,7 @@
 
 ;;; OSX native fullscreen
 (global-set-key "\C-c\C-c\C-f" 'ns-toggle-fullscreen)
-(add-hook 'window-setup-hook 'ns-toggle-fullscreen t)
+(if (window-system) (add-hook 'window-setup-hook 'ns-toggle-fullscreen t))
 
 ;;; customizations
 
