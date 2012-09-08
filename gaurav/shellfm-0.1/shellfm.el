@@ -485,7 +485,7 @@ DOC is an optional documentation string."
   "Show current Shell.FM status in echo area."
   (interactive)
   (if (eq shellfm-status 'radio)
-      (message (concat "Listening to"
+      (message (concat "Listening to "
                        (propertize shellfm-current-station 'face 'bold)))
     (message (concat "Shell.FM is " (symbol-name shellfm-status)))))
 
