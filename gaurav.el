@@ -3,7 +3,7 @@
 
 ;; light table like theme
 (add-to-list 'custom-theme-load-path (concat user-dotfiles-dir "emacs-themes"))
-(load-theme 'bubbleberry 1)
+(if (window-system) (load-theme 'bubbleberry 1))
 
 ;;; OSX native fullscreen
 (global-set-key "\C-c\C-c\C-f" 'ns-toggle-fullscreen)
@@ -72,10 +72,10 @@
 (global-set-key "\C-xf" 'recentf-ido-find-file)
 
 ;; show line numbers
-(global-linum-mode 1)
+(if (window-system) (global-linum-mode 1))
 
 ;; fringe-mode
-(set-fringe-mode '(1 . 1))
+(if (window-system) (set-fringe-mode '(1 . 1)))
 
 ;; shell-fm
 ;; (shellfm 1)
