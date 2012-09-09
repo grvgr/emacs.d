@@ -12,6 +12,7 @@
         flymake-csslint
         flymake-haml
         flymake-sass
+        flymake-cursor
         highline
         yaml-mode
         wtf
