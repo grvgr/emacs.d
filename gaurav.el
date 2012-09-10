@@ -86,6 +86,9 @@
 
 (global-set-key "\C-c\C-c\C-s" 'scrollbar-fix)
 
+;;; disable menu-bar-mode for terminal
+(if (not window-system) (menu-bar-mode -1))
+
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; coding: utf-8
