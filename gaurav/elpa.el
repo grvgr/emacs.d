@@ -3,7 +3,7 @@
 ;;rvm
 (require 'rvm)
 (rvm-use-default)
-(add-hook 'rinari-minor-mode-hook 'rvm-activate-corresponding-ruby)
+;; (add-hook 'rinari-minor-mode-hook 'rvm-activate-corresponding-ruby)
 
 ;;rinari
 (setq rinari-tags-file-name "TAGS")
