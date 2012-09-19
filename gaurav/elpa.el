@@ -43,3 +43,7 @@
              (flymake-ruby-load)
              (flymake-cursor-mode)
              ))
+
+;; rainbow
+(require 'rainbow-mode)
+(add-hook 'css-mode-hook 'rainbow-mode)
