@@ -72,7 +72,8 @@
 (global-set-key "\C-xf" 'recentf-ido-find-file)
 
 ;; show line numbers
-(if (window-system) (global-linum-mode 1))
+;;(if (window-system) (global-linum-mode 1))
+(global-set-key "\C-cl" 'linum-mode)
 
 ;; fringe-mode
 (if (window-system) (set-fringe-mode '(1 . 1)))
