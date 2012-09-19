@@ -89,6 +89,12 @@
 ;;; disable menu-bar-mode for terminal
 (if (not window-system) (menu-bar-mode -1))
 
+;;;(set-face-attribute 'default nil :font "Menlo")
+;;;(set-face-attribute 'default nil :font "Monaco")
+;;;(set-face-attribute 'default nil :font "Inconsolata")
+(set-face-attribute 'default nil :font "Inconsolata-dz")
+(set-face-attribute 'default nil :height 110)
+
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; coding: utf-8
